@@ -1,0 +1,21 @@
+.titulo-manske {
+  display: absolute;
+  margin-top: -10px;
+  margin-left: 10%;
+}
+
+.button-trash{
+  position: absolute;
+  margin-top: -22px;
+  margin-left: 85%;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    background: gray;
+    width: 100%;
+    padding-top: 40px;
+    color: #fff;
+    height: 40px;
+}
