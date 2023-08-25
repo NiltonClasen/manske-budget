@@ -3,6 +3,14 @@
   align-items: center;
 }
 
-.example-headers-align .mat-mdc-form-field + .mat-mdc-form-field {
+.mat-mdc-slider {
+  max-width: 500px;
+  width: 100%;
+}
+.mat-slider{
   margin-left: 8px;
+}
+
+.mat-action-row {
+  place-content: space-between;
 }

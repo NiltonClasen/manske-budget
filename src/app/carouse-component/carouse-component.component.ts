@@ -19,6 +19,8 @@ export class CarouseComponentComponent implements OnInit {
 
     step = 0;
     selectedValue: string = "";
+    valueInitialSlider = 0;
+    subtotalDegrau =200;
 
     foods: Food[] = [
       {value: 'steak-0', viewValue: 'Steak'},

@@ -15,7 +15,6 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-
     <mat-form-field>
       <mat-label>Medida</mat-label>
       <mat-select [(ngModel)]="selectedValue" name="food">
@@ -24,8 +23,24 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+    <div>
+      <label>Quantidade</label>
+    </div>
+    <mat-form-field class="example-margin example-width">
+      <mat-label>Value</mat-label>
+      <input matInput type="number" [(ngModel)]="valueInitialSlider">
+    </mat-form-field>
+    <mat-slider
+        class="example-margin"
+        [max]= "20"
+        [min]= "1"
+        [step]= "1"
+        [discrete]= "true">
+      <input matSliderThumb [(ngModel)]="valueInitialSlider" #slider>
+    </mat-slider>
     <mat-action-row>
-      <button mat-button color="primary" (click)="nextStep()">Next</button>
+      <span>Subtotal R${{valueInitialSlider}}</span>
+      <button mat-button color="primary" (click)="nextStep()">Adicionar</button>
     </mat-action-row>
   </mat-expansion-panel>
 
@@ -37,14 +52,18 @@
         <mat-icon>map</mat-icon>
     </mat-expansion-panel-header>
 
+    <mat-button-toggle-group name="favoriteColor" aria-label="Favorite Color">
+      <mat-button-toggle value="red">Com anel</mat-button-toggle>
+      <mat-button-toggle value="green">Sem anel</mat-button-toggle>
+    </mat-button-toggle-group>
+
     <mat-form-field>
       <mat-label>Country</mat-label>
       <input matInput>
     </mat-form-field>
 
     <mat-action-row>
-      <button mat-button color="warn" (click)="prevStep()">Previous</button>
-      <button mat-button color="primary" (click)="nextStep()">Next</button>
+      <button mat-button color="primary" (click)="nextStep()">Adicionar</button>
     </mat-action-row>
   </mat-expansion-panel>
 
@@ -62,12 +81,11 @@
     </mat-form-field>
 
     <mat-action-row>
-      <button mat-button color="warn" (click)="prevStep()">Previous</button>
-      <button mat-button color="primary" (click)="nextStep()">Next</button>
+      <button mat-button color="primary" (click)="nextStep()">Adicionar</button>
     </mat-action-row>
   </mat-expansion-panel>
 
-  <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(2)" hideToggle>
+  <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>
         Montagem
@@ -76,14 +94,25 @@
     </mat-expansion-panel-header>
 
     <mat-form-field>
-      <mat-label>Date</mat-label>
-      <input matInput [matDatepicker]="picker" (focus)="picker.open()" readonly>
+      <mat-label>Tipo degrau</mat-label>
+      <mat-select [(ngModel)]="selectedValue" name="food">
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
-    <mat-datepicker #picker></mat-datepicker>
+
+    <mat-form-field>
+      <mat-label>Medida</mat-label>
+      <mat-select [(ngModel)]="selectedValue" name="food">
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
     <mat-action-row>
-      <button mat-button color="warn" (click)="prevStep()">Previous</button>
-      <button mat-button color="primary" (click)="nextStep()">End</button>
+      <button mat-button color="primary" (click)="nextStep()">Adicionar</button>
     </mat-action-row>
   </mat-expansion-panel>
 
