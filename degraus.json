@@ -1,0 +1,116 @@
+{
+  "registros": {
+    "registro": [
+      {
+        "tipo": "Altemburg",
+        "tamanho": "0,50",
+        "preco": 123,24
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "0,55",
+        "preco": 133,09
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "0,60",
+        "preco": 143,74
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "0,65",
+        "preco": 167,67
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "0,70",
+        "preco": 181,07
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "0,75",
+        "preco": 195,55
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "0,80",
+        "preco": 211,21
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "0,85",
+        "preco": 228,11
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "0,90",
+        "preco": 246,36
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "0,95",
+        "preco": 266,07
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "1,00",
+        "preco": 287,35
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "1,05",
+        "preco": 298,14
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "1,10",
+        "preco": 310,34
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "1,15",
+        "preco": 335,16
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "1,20",
+        "preco": 361,98
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "1,25",
+        "preco": 390,96
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "1,30",
+        "preco": 422,22
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "1,35",
+        "preco": 456,65
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "1,40",
+        "preco": 492,52
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "1,45",
+        "preco": 531,88
+      },
+      {
+        "tipo": "Altemburg",
+        "tamanho": "1,50",
+        "preco": 574,45
+      },
+      {
+        "tipo": "Duplos",
+        "tamanho": "0,50",
+        "preco": "XX"
+      }
+	]
+  }
+}

@@ -4,19 +4,57 @@
       <mat-panel-title>
         Degrau
       </mat-panel-title>
-        <mat-icon>account_circle</mat-icon>
+      <mat-icon>account_circle</mat-icon>
     </mat-expansion-panel-header>
 
     <mat-form-field>
       <mat-label>Tipo degrau</mat-label>
-      <mat-select [(ngModel)]="selectedValue" name="food">
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{food.viewValue}}
+      <mat-select [(ngModel)]="tipoDegrauSelected" (selectionChange)="changeDegrau()">
+        <mat-option *ngFor="let tipoDegrau of listaTiposDegrau" [value]="tipoDegrau">
+          {{tipoDegrau}}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Medida</mat-label>
+      <mat-label>Tamanho</mat-label>
+      <mat-select [(ngModel)]="tamanhoDegrauSelected" (selectionChange)="changeDegrau()">
+        <mat-option *ngFor="let tamanhoDegrau of listaTamanhosDegrau" [value]="tamanhoDegrau">
+          {{tamanhoDegrau}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <label>Quantidade</label>
+    </div>
+    <mat-form-field>
+      <input matInput type="number" [(ngModel)]="valueInitialSlider">
+    </mat-form-field>
+    <mat-slider [max]="20" [min]="1" [step]="1" [discrete]="true" (input)="valorSliderAlterado()">
+      <input matSliderThumb [(ngModel)]="valueInitialSlider" #slider>
+    </mat-slider>
+    <mat-action-row>
+      <span>Subtotal R${{(valorDegrauSoma)}}</span>
+      <button mat-button color="primary" (click)="nextStep()">Adicionar</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+
+
+
+
+  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Patamar
+      </mat-panel-title>
+      <mat-icon>map</mat-icon>
+    </mat-expansion-panel-header>
+    <mat-button-toggle-group name="favoriteColor" aria-label="Favorite Color">
+      <mat-button-toggle value="red">Com anel</mat-button-toggle>
+      <mat-button-toggle value="green">Sem anel</mat-button-toggle>
+    </mat-button-toggle-group>
+    <mat-form-field>
+      <mat-label>Tamanho</mat-label>
       <mat-select [(ngModel)]="selectedValue" name="food">
         <mat-option *ngFor="let food of foods" [value]="food.value">
           {{food.viewValue}}
@@ -26,16 +64,54 @@
     <div>
       <label>Quantidade</label>
     </div>
-    <mat-form-field class="example-margin example-width">
-      <mat-label>Value</mat-label>
+    <mat-form-field>
       <input matInput type="number" [(ngModel)]="valueInitialSlider">
     </mat-form-field>
-    <mat-slider
-        class="example-margin"
-        [max]= "20"
-        [min]= "1"
-        [step]= "1"
-        [discrete]= "true">
+    <mat-slider [max]="5" [min]="1" [step]="1" [discrete]="true">
+      <input matSliderThumb [(ngModel)]="valueInitialSlider" #slider>
+    </mat-slider>
+
+    <mat-action-row>
+      <span>Subtotal R${{valueInitialSlider}}</span>
+      <button mat-button color="primary" (click)="nextStep()">Adicionar</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+
+
+
+
+
+  <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Outros
+      </mat-panel-title>
+      <mat-icon>map</mat-icon>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <mat-label>Selecione</mat-label>
+      <mat-select [(ngModel)]="selectedValue" name="food">
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select [(ngModel)]="selectedValue" name="food">
+        <mat-option *ngFor="let food of foods" [value]="food.value">
+          {{food.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <label>Quantidade</label>
+    </div>
+    <mat-form-field>
+      <input matInput type="number" [(ngModel)]="valueInitialSlider">
+    </mat-form-field>
+    <mat-slider [max]="20" [min]="1" [step]="1" [discrete]="true">
       <input matSliderThumb [(ngModel)]="valueInitialSlider" #slider>
     </mat-slider>
     <mat-action-row>
@@ -44,57 +120,21 @@
     </mat-action-row>
   </mat-expansion-panel>
 
-  <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Patamar
-      </mat-panel-title>
-        <mat-icon>map</mat-icon>
-    </mat-expansion-panel-header>
 
-    <mat-button-toggle-group name="favoriteColor" aria-label="Favorite Color">
-      <mat-button-toggle value="red">Com anel</mat-button-toggle>
-      <mat-button-toggle value="green">Sem anel</mat-button-toggle>
-    </mat-button-toggle-group>
 
-    <mat-form-field>
-      <mat-label>Country</mat-label>
-      <input matInput>
-    </mat-form-field>
 
-    <mat-action-row>
-      <button mat-button color="primary" (click)="nextStep()">Adicionar</button>
-    </mat-action-row>
-  </mat-expansion-panel>
 
-  <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Outros
-      </mat-panel-title>
-        <mat-icon>map</mat-icon>
-    </mat-expansion-panel-header>
-
-    <mat-form-field>
-      <mat-label>Country</mat-label>
-      <input matInput>
-    </mat-form-field>
-
-    <mat-action-row>
-      <button mat-button color="primary" (click)="nextStep()">Adicionar</button>
-    </mat-action-row>
-  </mat-expansion-panel>
 
   <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>
         Montagem
       </mat-panel-title>
-        <mat-icon>date_range</mat-icon>
+      <mat-icon>date_range</mat-icon>
     </mat-expansion-panel-header>
 
     <mat-form-field>
-      <mat-label>Tipo degrau</mat-label>
+      <mat-label>Selecione</mat-label>
       <mat-select [(ngModel)]="selectedValue" name="food">
         <mat-option *ngFor="let food of foods" [value]="food.value">
           {{food.viewValue}}
@@ -103,7 +143,7 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Medida</mat-label>
+      <mat-label>Tamanho</mat-label>
       <mat-select [(ngModel)]="selectedValue" name="food">
         <mat-option *ngFor="let food of foods" [value]="food.value">
           {{food.viewValue}}
@@ -112,6 +152,7 @@
     </mat-form-field>
 
     <mat-action-row>
+      <span>Subtotal R${{valueInitialSlider}}</span>
       <button mat-button color="primary" (click)="nextStep()">Adicionar</button>
     </mat-action-row>
   </mat-expansion-panel>
