@@ -27,14 +27,14 @@
       <label>Quantidade</label>
     </div>
     <mat-form-field>
-      <input matInput type="number" [(ngModel)]="valueInitialSlider">
+      <input matInput type="number" [(ngModel)]="quantidadeSlider">
     </mat-form-field>
     <mat-slider [max]="20" [min]="1" [step]="1" [discrete]="true" (input)="valorSliderAlterado()">
-      <input matSliderThumb [(ngModel)]="valueInitialSlider" #slider>
+      <input matSliderThumb [(ngModel)]="quantidadeSlider" #slider>
     </mat-slider>
     <mat-action-row>
       <span>Subtotal R${{(valorDegrauSoma)}}</span>
-      <button mat-button color="primary" (click)="nextStep()">Adicionar</button>
+      <button mat-button color="primary" (click)="adicionarDegrau('Degrau')">Adicionar</button>
     </mat-action-row>
   </mat-expansion-panel>
 

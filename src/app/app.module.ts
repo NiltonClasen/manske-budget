@@ -17,8 +17,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSliderModule} from '@angular/material/slider';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TableComponentComponent } from './table-component/table-component.component';
+import {MatTableModule} from '@angular/material/table';
+import { GridDataService } from './grid-data.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import { FormsModule } from '@angular/forms';
     BottonBarComponent,
     MainBodyComponent,
     CarouseComponentComponent,
+    TableComponentComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,8 +47,10 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     MatButtonToggleModule,
     MatSliderModule,
+    MatTableModule,
+    NgIf,
   ],
-  providers: [],
+  providers: [GridDataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,5 +1,7 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { Degrau, degrauModel } from '../models/degrauModel';
+import { Component, OnInit } from '@angular/core';
+import { degrauModel } from '../models/degrauModel';
+import { GridDataService } from '../grid-data.service';
+import { ItemLista } from '../table-component/table-component.component';
 
 interface Food {
   value: string;
@@ -12,21 +14,23 @@ interface Food {
   styleUrls: ['./carouse-component.component.css'],
 })
 export class CarouseComponentComponent implements OnInit {
-  ngOnInit() {}
+  ngOnInit() {
+  }
+  constructor(private gridData: GridDataService) {}
 
   degrauModel: degrauModel = new degrauModel();
   listaTiposDegrau: Array<String> = this.degrauModel.getIds();
   listaTamanhosDegrau: Array<String> = this.degrauModel.getTamanhos();
 
-
   tipoDegrauSelected = '';
   tamanhoDegrauSelected = '';
   step = 0;
   selectedValue: string = '';
-  valueInitialSlider = 1;
+  quantidadeSlider = 1;
   subtotalDegrau = 200;
   valorDegrau = 0;
   valorDegrauSoma = 0;
+  valueInitialSlider = 0;
 
   foods: Food[] = [
     { value: 'steak-0', viewValue: 'Steak' },
@@ -46,12 +50,29 @@ export class CarouseComponentComponent implements OnInit {
     this.step--;
   }
 
-  changeDegrau(){
-    if(this.tipoDegrauSelected != '' && this.tamanhoDegrauSelected != ''){
-      this.valorDegrau = this.degrauModel.getPrecoDegrau(this.tipoDegrauSelected, this.tamanhoDegrauSelected);
+  adicionarDegrau(tipo: string) {
+    const item: ItemLista = {
+      tipo: tipo,
+      produto: this.tipoDegrauSelected,
+      tamanho: this.tamanhoDegrauSelected,
+      quantidade: this.quantidadeSlider,
+      valor: this.valorDegrauSoma,
+    };
+    this.gridData.enviarInfo(item);
+  }
+
+  changeDegrau() {
+    if (this.tipoDegrauSelected != '' && this.tamanhoDegrauSelected != '') {
+      this.valorDegrau = this.degrauModel.getPrecoDegrau(
+        this.tipoDegrauSelected,
+        this.tamanhoDegrauSelected
+      );
+      this.valorDegrauSoma = this.valorDegrau;
     }
   }
-  valorSliderAlterado(){
-    this.valorDegrauSoma = parseFloat((this.valorDegrau * this.valueInitialSlider).toFixed(2));
+  valorSliderAlterado() {
+    this.valorDegrauSoma = parseFloat(
+      (this.valorDegrau * this.quantidadeSlider).toFixed(2)
+    );
   }
 }
