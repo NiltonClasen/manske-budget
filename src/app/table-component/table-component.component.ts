@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GridDataService } from '../grid-data.service';
+import {SelectionModel} from '@angular/cdk/collections';
 
 export interface ItemLista {
   tipo: string;
@@ -15,9 +16,9 @@ export interface ItemLista {
   styleUrls: ['./table-component.component.css'],
 })
 export class TableComponentComponent implements OnInit {
-  displayedColumns: string[] = ['tipo', 'produto', 'quantidade', 'valor'];
+  displayedColumns: string[] = ['select', 'tipo', 'produto', 'quantidade', 'valor'];
   dataSource: ItemLista[] = [];
-  clickedRows = new Set<ItemLista>();
+  selection = new SelectionModel<ItemLista>(true, []);
 
   constructor(private gridData: GridDataService) {}
 
@@ -32,11 +33,29 @@ export class TableComponentComponent implements OnInit {
     this.dataSource = [...this.dataSource];
   }
 
-  deleteElementoTable() {
-    this.clickedRows.forEach((row) => {
-      this.dataSource.filter((element) => {
-        return row != element;
+  deleteElementosTable() {
+    if(!this.selection.selected.length){return;}
+
+    this.selection.selected.forEach(element => {
+      let idx = this.dataSource.filter(e => {
+        return e === element;
       });
+      this.dataSource.splice(this.dataSource.indexOf(idx[0]),1);
     });
+    this.dataSource = [...this.dataSource];
+    this.selection.clear();
+  }
+
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.length;
+    return numSelected === numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggle() {
+    this.isAllSelected() ?
+        this.selection.clear() :
+        this.dataSource.forEach(row => this.selection.select(row));
   }
 }

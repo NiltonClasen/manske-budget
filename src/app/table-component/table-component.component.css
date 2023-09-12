@@ -5,7 +5,6 @@
 .mat-mdc-row .mat-mdc-cell {
   border-bottom: 1px solid transparent;
   border-top: 1px solid transparent;
-  cursor: pointer;
 }
 
 .mat-mdc-row:hover .mat-mdc-cell {
@@ -15,4 +14,9 @@
 .demo-row-is-clicked {
   font-weight: bold;
   background-color: lightgray;
+}
+
+.scrollable-table {
+  max-height: 300px; /* Defina a altura máxima desejada */
+  overflow-y: auto; /* Adiciona uma barra de rolagem vertical quando necessário */
 }

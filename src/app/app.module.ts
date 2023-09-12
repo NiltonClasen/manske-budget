@@ -17,6 +17,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TableComponentComponent } from './table-component/table-component.component';
@@ -49,6 +50,7 @@ import { GridDataService } from './grid-data.service';
     MatSliderModule,
     MatTableModule,
     NgIf,
+    MatCheckboxModule,
   ],
   providers: [GridDataService],
   bootstrap: [AppComponent],
