@@ -23,6 +23,7 @@ import { FormsModule } from '@angular/forms';
 import { TableComponentComponent } from './table-component/table-component.component';
 import {MatTableModule} from '@angular/material/table';
 import { GridDataService } from './grid-data.service';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { GridDataService } from './grid-data.service';
     MatTableModule,
     NgIf,
     MatCheckboxModule,
+    MatToolbarModule,
   ],
   providers: [GridDataService],
   bootstrap: [AppComponent],
