@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { degrauModel } from '../models/degrauModel';
 import { GridDataService } from '../grid-data.service';
 import { ItemLista } from '../table-component/table-component.component';
+import { PatamarModel } from '../models/patamarModel';
+import { OutrosModel } from '../models/outrosModel';
+import { MontagemModel } from '../models/montagemModel';
 
 interface Food {
   value: string;
@@ -13,14 +16,26 @@ interface Food {
   templateUrl: './carouse-component.component.html',
   styleUrls: ['./carouse-component.component.css'],
 })
-export class CarouseComponentComponent implements OnInit {
-  ngOnInit() {
-  }
+export class CarouseComponentComponent{
+
   constructor(private gridData: GridDataService) {}
 
   degrauModel: degrauModel = new degrauModel();
+  tamanhosGenericos = this.degrauModel.getTamanhos();
   listaTiposDegrau: Array<String> = this.degrauModel.getIds();
-  listaTamanhosDegrau: Array<String> = this.degrauModel.getTamanhos();
+  listaTamanhosDegrau: Array<String> = this.tamanhosGenericos;
+
+
+  patamarModel: PatamarModel = new PatamarModel();
+  listaTamanhosPatamar: Array<String> = this.tamanhosGenericos;
+
+  OutrosModel: OutrosModel = new OutrosModel();
+  listaTiposOutros: Array<String> = this.degrauModel.getIds();
+  listaTamanhosOutros: Array<String> = this.degrauModel.getTamanhos();
+
+  montagemModel: MontagemModel = new MontagemModel();
+  listaTiposMontagem: Array<String> = this.degrauModel.getIds();
+  listaTamanhosMontagem: Array<String> = this.tamanhosGenericos;
 
   tipoDegrauSelected = '';
   tamanhoDegrauSelected = '';

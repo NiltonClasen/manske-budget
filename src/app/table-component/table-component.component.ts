@@ -44,6 +44,7 @@ export class TableComponentComponent implements OnInit {
     if (element !== null) {
       element.hidden = false;
     }
+    this.updatePriceLabel();
   }
 
   deleteElementosTable() {
@@ -65,6 +66,7 @@ export class TableComponentComponent implements OnInit {
         element.hidden = true;
       }
     }
+    this.updatePriceLabel();
   }
 
   isAllSelected() {
@@ -79,4 +81,16 @@ export class TableComponentComponent implements OnInit {
       ? this.selection.clear()
       : this.dataSource.forEach((row) => this.selection.select(row));
   }
+
+  updatePriceLabel(){
+    let total = 0;
+    this.dataSource.forEach(element => {
+      total += element.valor;
+    });
+    const element = <HTMLElement> window.document.getElementsByClassName('total-titulo')[0].children[0];
+    if(element){
+      element.innerText = 'Total R$'+total.toFixed(2);
+    }
+  }
+
 }
