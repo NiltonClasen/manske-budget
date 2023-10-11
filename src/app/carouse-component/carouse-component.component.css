@@ -6,3 +6,7 @@
   place-content: space-between;
 }
 
+.mat-label{
+  font-family: 'Courier New', Courier, monospace, sans-serif;
+}
+

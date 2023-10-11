@@ -16,11 +16,6 @@
   background-color: lightgray;
 }
 
-.scrollable-table {
-  max-height: 500px; /* Defina a altura máxima desejada */
-  overflow-y: auto; /* Adiciona uma barra de rolagem vertical quando necessário */
-}
-
 .deleteButton{
   display: block;
   margin-left: auto;

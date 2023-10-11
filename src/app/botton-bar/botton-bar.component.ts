@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-botton-bar',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./botton-bar.component.css']
 })
 export class BottonBarComponent {
+@Input() teste!: number;
 
 }

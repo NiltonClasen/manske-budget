@@ -6,6 +6,7 @@
   padding-top: 80px;
   color: #fff;
   display: inline-block;
+  z-index: 1;
 }
 
 .total-titulo{
