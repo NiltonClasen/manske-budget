@@ -1,4 +1,4 @@
-<div class="scrollable-table">
+
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
   <ng-container matColumnDef="tipo">
     <th mat-header-cell *matHeaderCellDef>Tipo</th>
@@ -37,7 +37,6 @@
   <tr mat-row (click)="selection.toggle(row)"
     *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-</div>
 <div>
   <button mat-raised-button (click)="deleteElementosTable()" color="warn" [hidden]="!selection.hasValue()" class="deleteButton">Deletar</button>
 </div>

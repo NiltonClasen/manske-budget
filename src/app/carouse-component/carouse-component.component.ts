@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { degrauModel } from '../models/degrauModel';
-import { GridDataService } from '../grid-data.service';
+import { GridDataService } from '../services/grid-data.service';
 import { ItemLista } from '../table-component/table-component.component';
 import { PatamarModel } from '../models/patamarModel';
 import { OutrosModel } from '../models/outrosModel';
@@ -89,5 +89,12 @@ export class CarouseComponentComponent{
     this.valorDegrauSoma = parseFloat(
       (this.valorDegrau * this.quantidadeSlider).toFixed(2)
     );
+  }
+
+  valorQntAlterado(valorMax:number){
+    if(this.quantidadeSlider >valorMax) {
+      this.quantidadeSlider = valorMax;
+    }
+    this.valorSliderAlterado();
   }
 }

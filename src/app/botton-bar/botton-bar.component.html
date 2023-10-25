@@ -3,8 +3,8 @@
     <div class="total-titulo">
       <span>Total R$0,00</span>
     </div>
-    <div class="button-finalizar">
-      <button mat-fab extended color="primary">
+    <div [hidden]="visible" class="button-finalizar" id="button-finalizar-id">
+      <button mat-fab extended color="primary" routerLink="checkout">
         <mat-icon>shopping_cart</mat-icon>
         Finalizar
       </button>

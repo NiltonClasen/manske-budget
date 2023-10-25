@@ -1,3 +1,4 @@
+import { AppRoutingModule } from './app-routing.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -15,15 +16,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {MatSliderModule} from '@angular/material/slider';
-import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TableComponentComponent } from './table-component/table-component.component';
-import {MatTableModule} from '@angular/material/table';
-import { GridDataService } from './grid-data.service';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatTableModule } from '@angular/material/table';
+import { GridDataService } from './services/grid-data.service';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -33,9 +35,11 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MainBodyComponent,
     CarouseComponentComponent,
     TableComponentComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,

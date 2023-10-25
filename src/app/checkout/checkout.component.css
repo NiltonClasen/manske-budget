@@ -1,0 +1,70 @@
+.example-container {
+  max-height: 500px;
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-mdc-header-cell {
+  font-weight: bold;
+}
+
+.mat-mdc-cell {
+  font-weight: 400;
+}
+
+.mat-mdc-table-sticky {
+  border-top: 1px solid #e0e0e0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Estilo do botão Voltar */
+.back-button {
+  display: flex;
+  align-items: center;
+  /* Cor do botão Voltar */
+  color: #000000;
+  /* Cor do texto */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Estilo do botão Compartilhar */
+.share-button {
+  display: flex;
+  align-items: center;
+  background-color: #25D366;
+  /* Cor do botão Compartilhar (cor do WhatsApp) */
+  color: #fff;
+  /* Cor do texto */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Estilo do ícone Compartilhar (WhatsApp) */
+.whatsapp-icon {
+  margin-right: 5px;
+  width: 20px;
+  /* Ajuste o tamanho do ícone conforme necessário */
+}
+
+/* Imagem do WhatsApp no canto esquerdo do botão */
+.whatsapp-button-href img {
+  margin-right: 10px;
+  /* Espaçamento entre o ícone e o texto */
+  width: 28px;
+  /* Ajuste o tamanho da imagem conforme necessário */
+}

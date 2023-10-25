@@ -27,9 +27,17 @@
       <label>Quantidade</label>
     </div>
     <mat-form-field>
-      <input matInput type="number" [(ngModel)]="quantidadeSlider">
+      <input matInput type="number"
+      [(ngModel)]="quantidadeSlider"
+      (input)="valorQntAlterado(20)"
+      [disabled]="tipoDegrauSelected && tamanhoDegrauSelected">
     </mat-form-field>
-    <mat-slider [max]="20" [min]="1" [step]="1" [discrete]="true" (input)="valorSliderAlterado()">
+    <mat-slider [max]="20"
+    [min]="1"
+    [step]="1"
+    [discrete]="true"
+    (input)="valorSliderAlterado()"
+    [disabled]="(tipoDegrauSelected && tamanhoDegrauSelected)">
       <input matSliderThumb [(ngModel)]="quantidadeSlider" #slider>
     </mat-slider>
     <mat-action-row>
